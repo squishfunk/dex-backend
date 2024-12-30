@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrowdsaleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/tokens', [TokenController::class, 'store']);
 Route::get('/tokens', [TokenController::class, 'index']);
+
+Route::post('/crowdsale', [CrowdsaleController::class, 'store']);
+Route::get('/crowdsale', [CrowdsaleController::class, 'index']);

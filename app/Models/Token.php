@@ -18,4 +18,9 @@ class Token extends Model
         'contractAddress',
         'deployerAddress',
     ];
+
+    public function crowdsale()
+    {
+        return $this->hasOne(Crowdsale::class, 'tokenAddress', 'contractAddress');
+    }
 }
