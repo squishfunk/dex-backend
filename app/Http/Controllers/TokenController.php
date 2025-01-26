@@ -27,10 +27,15 @@ class TokenController extends Controller
         ], 201);
     }
 
-    public function index()
-    {
-        $tokens = Token::all();
+   public function index(Request $request)
+   {
+       if ($request->has('name')) {
+           $tokens = Token::where('name', 'like', '%' . $request->input('name') . '%')->get();
+       } else {
+           $tokens = Token::all();
+       }
 
-        return response()->json($tokens);
-    }
+       return response()->json($tokens);
+   }
+
 }
